@@ -1,0 +1,110 @@
+<div id="demo" class="carousel slide" data-ride="carousel">
+    <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/img/img31.png" alt="img">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/img32.png" alt="img">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/img33.png" alt="img">
+        </div>
+    </div>
+
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div>
+
+<div style="background-color: rgb(117, 2, 6);" class="py-3 px-5">
+    <div class="d-inline text-light mx-5" style="font-size: 35px;font-weight: bold;">SIÊU SIM FPT</div>
+    <div class="d-inline py-2 px-4 text-light mx-5" style="border: 1px solid white;border-radius: 64px;">Siêu kết nối
+    </div>
+    <div class="d-inline text-light py-2 px-4 mx-5" style="border: 1px solid white;border-radius: 64px;">Try me | Ưu đãi
+        thả ga</div>
+    <button class="btn btn-success mx-5"><i class="fa-solid fa-phone"></i> Gọi 1800 6601</button>
+</div>
+
+<div>
+    <img src="/img/img34.png" width="100%">
+</div>
+
+<div class="container">
+    <h1 class="text-danger text-center mt-3">CHỌN FPT – CHỌN SIÊU KẾT NỐI THẾ GIỚI SỐ</h1>
+
+    <div class="row">
+        {{#each datapacks}}
+        <div class="col-4 p-3">
+            <div style="border-radius: 16px;background-color: white;" class="shadow">
+                <div style="height: 300px;">
+                    <img src="/img/img3.png" alt="img" width="100%" style="border-radius: 16px;">
+                </div>
+                <h2 class="text-center text-uppercase" style="font-weight: bold;">{{id}}</h2>
+                <h5 class="text-center text-danger">{{vietnamesePrice price}}Đ /chu kỳ {{cycle}} tháng</h5>
+                <div class="px-3" style="height: 150px;">
+                    {{description}}
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    <div class="shadow pb-3" style="border-radius: 16px;">
+        <img src="/img/img35.png" alt="img" width="100%">
+
+        <div class="input-group">
+            <select onchange="sortSim()" name="sort" id="sort" class="custom-select shadow-none">
+                <option value="Sắp xếp theo giá">Sắp xếp theo giá</option>
+                <option value="Giá thấp đến cao">Giá thấp đến cao</option>
+                <option value="Giá cao đến thấp">Giá cao đến thấp</option>
+            </select>
+        </div>
+
+        <table class="table table-hover text-center">
+            <thead>
+                <tr>
+                    <th>Số điện thoại</th>
+                    <th>Phí SIM</th>
+                    <th>Phí chọn số</th>
+                    <th>Loại SIM</th>
+                    <th>Nhà mạng</th>
+                    <th>Chọn mua</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                {{#each sims}}
+                <tr onclick="selectSim(this)" style="cursor: pointer;">
+                    <td>{{code}}</td>
+                    <td>{{vietnamesePrice price}}đ</td>
+                    <td>{{vietnamesePrice selectionFee}}đ</td>
+                    <td class="text-{{colorSimType type}}">{{type}}</td>
+                    <td><img src="/img/{{imageSimProvider provider}}" alt="img" width="100px" height="30px"></td>
+                    <td>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" class="custom-control-input" name="selected-sim" value="{{code}}"
+                                id="{{code}}">
+                            <label class="custom-control-label" for="{{code}}"></label>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+        <div class="text-center">
+            <button onclick="addToCart()" class="btn btn-danger w-50" style="border-radius: 64px;"><i
+                    class="fa-solid fa-cart-shopping text-light"></i> THÊM VÀO GIỎ HÀNG</button>
+        </div>
+    </div>
+</div>
+
+<script src="/js/index.js"></script>

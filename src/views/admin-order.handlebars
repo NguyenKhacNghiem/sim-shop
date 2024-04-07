@@ -1,0 +1,20 @@
+<table class="table table-hover text-center">
+    <thead>
+        <tr>
+            <th>Mã đơn hàng</th>
+            <th>Số điện thoại khách hàng</th>
+            <th>Tổng giá trị đơn hàng</th>
+            <th>Ngày đặt mua</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each orders}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{userPhone}}</td>
+            <td>{{vietnamesePrice total}}đ</td>
+            <td>{{date}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

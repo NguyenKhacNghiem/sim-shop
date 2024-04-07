@@ -1,0 +1,90 @@
+<div class="container-fluid">
+    <div class="row py-3">
+        <h1 class="col-12 text-center">Đăng ký tài khoản khách hàng</h1>
+
+        <div class="col-4">
+            <form action="/sign-up" method="post">
+                <div class="form-group">
+                    <label for="phone">Số điện thoại:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-danger"><i class="fa-solid fa-phone text-light"></i></span>
+                        </div>
+                        <input value="{{phone}}" name="phone" id="phone" type="text" class="form-control shadow-none"
+                            placeholder="VD: 0123456789">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mật khẩu:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span onclick="showPassword(this)" class="input-group-text bg-danger" style="cursor: pointer;"><i class="fa-solid fa-eye-slash text-light"></i></span>
+                        </div>
+                        <input value="{{password}}" name="password" id="password" type="password" class="form-control shadow-none"
+                            placeholder="VD: ilovefpt123">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="repassword">Nhập lại mật khẩu:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span onclick="showRePassword(this)" class="input-group-text bg-danger" style="cursor: pointer;"><i class="fa-solid fa-eye-slash text-light"></i></span>
+                        </div>
+                        <input value="{{repassword}}" name="repassword" id="repassword" type="password" class="form-control shadow-none"
+                            placeholder="VD: ilovefpt123">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="fullname">Họ và tên:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-danger"><i
+                                    class="fa-solid fa-signature text-light"></i></span>
+                        </div>
+                        <input value="{{fullname}}" name="fullname" id="fullname" type="text" class="form-control shadow-none"
+                            placeholder="VD: Nguyễn Văn Tí">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address">Địa chỉ:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-danger"><i class="fa-solid fa-map text-light"></i></span>
+                        </div>
+                        <input value="{{address}}" name="address" id="address" type="text" class="form-control shadow-none"
+                            placeholder="VD: 261 Khánh Hội, P2, Q4, TP. Hồ Chí Minh">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Giới tính:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-danger"><i
+                                    class="fa-solid fa-venus-mars text-light"></i></span>
+                        </div>
+                        <select name="gender" id="gender" class="custom-select shadow-none">
+                            <option value="Nam" {{currentSelection gender "Nam"}}>Nam</option>
+                            <option value="Nữ" {{currentSelection gender "Nữ"}}>Nữ</option>
+                        </select>
+                    </div>
+                </div>
+                <p>Đã có tài khoản? <a href="/sign-in" class="text-danger">Đăng nhập</a></p>
+                <button class="btn btn-danger" type="submit">Đăng ký</button>
+                <button class="btn btn-secondary px-4" type="reset">Xóa</button>
+            </form>
+
+            {{#if error}}
+            <div class="alert alert-danger alert-dismissible mt-2">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{error}}
+            </div>
+            {{/if}}
+        </div>
+
+        <div class="col-8">
+            <img src="/img/img29.png" alt="img" width="100%" height="800px">
+        </div>
+    </div>
+</div>
+
+<script src="/js/sign-up.js"></script>

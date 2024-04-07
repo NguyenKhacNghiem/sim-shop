@@ -1,0 +1,71 @@
+<style>
+    footer {
+        display: none;
+    }
+</style>
+
+<table class="table table-hover text-center" style="margin-bottom: 100px;">
+    <thead>
+        <tr>
+            <th>Số điện thoại</th>
+            <th>Phí SIM</th>
+            <th>Phí chọn số</th>
+            <th>Loại SIM</th>
+            <th>Nhà mạng</th>
+            <th>Xóa</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each sims}}
+        <tr>
+            <td>{{code}}</td>
+            <td>{{vietnamesePrice price}}đ</td>
+            <td>{{vietnamesePrice selectionFee}}đ</td>
+            <td class="text-{{colorSimType type}}">{{type}}</td>
+            <td><img src="/img/{{imageSimProvider provider}}" alt="img" width="100px" height="30px"></td>
+            <td>
+                <button onclick="showDeleteModal('{{code}}')" class="btn shadow-none"><i
+                        class="fa-solid fa-trash text-danger"></i></button>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<div class="fixed-bottom p-2 shadow-lg row">
+    <div class="col-9">
+        <b class="ml-3">Thụ tục đăng ký SIM tại cửa hàng</b>
+        <ol>
+            <li>Cung cấp bản gốc CMND/CCCD còn thời hạn của chủ thuê bao.</li>
+            <li>Ảnh chụp chân dung của chủ thuê bao tại thời điểm giao dịch.</li>
+            <li>FPT Shop sẽ tạm thời giữ SIM này trong 24h, Quý khách vui lòng đến cửa hàng nhận SIM trước thời gian quy định và cung cấp bản gốc CMND/CCCD còn thời hạn để làm thủ tục đăng ký SIM.</li>
+        </ol>
+    </div>
+    <div class="col-3 mt-3">
+        <p style="font-size: 30px;">Tổng tiền: {{vietnamesePrice total}}đ</p>
+        <button onclick="pay({{total}})" class="btn btn-danger"><i class="fa-solid fa-cart-shopping"></i> Thanh toán</button>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Xác nhận xóa</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body" id="deletedSim">
+                
+            </div>
+
+            <div class="modal-footer">
+                <button onclick="deleteFromCart()" type="button" class="btn btn-danger" data-dismiss="modal">Xóa</button>
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Đóng</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/cart.js"></script>
