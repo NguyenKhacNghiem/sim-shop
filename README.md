@@ -15,7 +15,7 @@ This project is a website selling sim cards used at FPT stores. With an intuitiv
 - Sort sim list
 - Add sim to cart
 - Remove sim from cart 
-- Buy sim
+- Buy sim and create order
   
 **2. Administrator role**
 - View sim list
