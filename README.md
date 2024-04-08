@@ -25,10 +25,11 @@ This project is a website selling sim cards used at FPT stores. With an intuitiv
 ### How to run this website?
 1. Download or clone this project from GitHub
 2. Unzip this project
-3. Open **cmd** and go to (cd) **src** folder 
-4. Type `yarn install` to download modules in file `package.json`
-5. Type `node app.js`
-6. Open the browser and access `http://localhost:9000`
+3. Import file **database.sql** into MySQL server
+4. Open **cmd** and go to (cd) **src** folder 
+5. Type `yarn install` to download modules in file `package.json`
+6. Type `node app.js`
+7. Open the browser and access `http://localhost:9000`
 
 ### Sample accounts to sign in
 **1. Customer account 1**
